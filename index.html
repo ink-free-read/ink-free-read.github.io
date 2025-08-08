@@ -7,8 +7,23 @@
   <title>Precision ML Consulting</title>
   <link rel="icon" href="icon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            giants_orange: { DEFAULT: '#f46036', 100: '#380e03', 200: '#701d06', 300: '#a92b09', 400: '#e13a0c', 500: '#f46036', 600: '#f67e5c', 700: '#f99e85', 800: '#fbbeae', 900: '#fddfd6' },
+            silver_lake_blue: { DEFAULT: '#5b85aa', 100: '#121b22', 200: '#233545', 300: '#355067', 400: '#476a89', 500: '#5b85aa', 600: '#7b9dbb', 700: '#9cb6cc', 800: '#bdcedd', 900: '#dee7ee' },
+            delft_blue: { DEFAULT: '#414770', 100: '#0d0e17', 200: '#1a1d2d', 300: '#272b44', 400: '#34395b', 500: '#414770', 600: '#59629b', 700: '#8188b6', 800: '#abb0cf', 900: '#d5d7e7' },
+            russian_violet: { DEFAULT: '#372248', 100: '#0b070f', 200: '#160e1d', 300: '#21152c', 400: '#2c1b3a', 500: '#372248', 600: '#613c80', 700: '#8a5bb2', 800: '#b191cb', 900: '#d8c8e5' },
+            dark_purple: { DEFAULT: '#171123', 100: '#050307', 200: '#09070e', 300: '#0e0a15', 400: '#120d1c', 500: '#171123', 600: '#3f2e60', 700: '#684c9e', 800: '#9883c3', 900: '#ccc1e1' }
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-neutral-50 text-neutral-900 font-sans">
+<body class="bg-dark_purple-100 text-neutral-900 font-sans">
   <!-- Header -->
   <header class="absolute top-0 left-0 w-full z-50 bg-transparent">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -17,40 +32,40 @@
         <h1 class="text-2xl font-bold text-white tracking-tight">Precision ML Consulting</h1>
       </div>
       <nav class="space-x-8 text-white font-medium">
-        <a href="#services" class="hover:underline">Services</a>
-        <a href="#projects" class="hover:underline">Projects</a>
-        <a href="#contact" class="hover:underline">Contact</a>
+        <a href="#services" class="hover:text-giants_orange">Services</a>
+        <a href="#projects" class="hover:text-giants_orange">Projects</a>
+        <a href="#contact" class="hover:text-giants_orange">Contact</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+  <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden bg-dark_purple">
     <video autoplay muted loop playsinline class="absolute w-full h-full object-cover opacity-60">
       <source src="hero-video.mp4" type="video/mp4" />
     </video>
     <div class="relative z-10 max-w-3xl px-4">
       <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">AI & ML Solutions That Actually Work</h2>
       <p class="text-xl md:text-2xl mb-8">Cut through the noise. We design, build, and optimise machine learning systems that are practical, sustainable, and deliver measurable business impact.</p>
-      <a href="#contact" class="bg-white text-neutral-900 px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-neutral-100 transition">Work With Us</a>
+      <a href="#contact" class="bg-giants_orange text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-giants_orange-400 transition">Work With Us</a>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="py-24 bg-neutral-100">
+  <section id="services" class="py-24 bg-silver_lake_blue-100">
     <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-4xl font-bold mb-16 text-center tracking-tight">Our Services</h3>
+      <h3 class="text-4xl font-bold mb-16 text-center tracking-tight text-delft_blue">Our Services</h3>
       <div class="grid md:grid-cols-3 gap-12">
         <div class="group p-8 bg-white rounded-xl shadow-lg hover:shadow-2xl transition">
-          <h4 class="text-2xl font-semibold mb-4 group-hover:text-blue-700 transition">Practical AI & ML Strategy</h4>
+          <h4 class="text-2xl font-semibold mb-4 group-hover:text-giants_orange transition">Practical AI & ML Strategy</h4>
           <p>Navigate hype and complexity to identify what’s realistic, feasible, and sustainable for your business.</p>
         </div>
         <div class="group p-8 bg-white rounded-xl shadow-lg hover:shadow-2xl transition">
-          <h4 class="text-2xl font-semibold mb-4 group-hover:text-blue-700 transition">End-to-End Deployment</h4>
+          <h4 class="text-2xl font-semibold mb-4 group-hover:text-giants_orange transition">End-to-End Deployment</h4>
           <p>From concept to production – we implement and integrate AI/ML solutions into your workflows.</p>
         </div>
         <div class="group p-8 bg-white rounded-xl shadow-lg hover:shadow-2xl transition">
-          <h4 class="text-2xl font-semibold mb-4 group-hover:text-blue-700 transition">System Audit & Optimisation</h4>
+          <h4 class="text-2xl font-semibold mb-4 group-hover:text-giants_orange transition">System Audit & Optimisation</h4>
           <p>Audit, modernise, and optimise existing systems for improved performance and ROI.</p>
         </div>
       </div>
@@ -60,39 +75,39 @@
   <!-- Projects -->
   <section id="projects" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-4xl font-bold mb-6 text-center tracking-tight">Past Projects</h3>
+      <h3 class="text-4xl font-bold mb-6 text-center tracking-tight text-delft_blue">Past Projects</h3>
       <p class="text-center max-w-3xl mx-auto mb-16 text-neutral-600">We’ve delivered solutions for Fortune 50 enterprises, high-growth startups, and major film studios, achieving a collective nine-figure impact.</p>
       <div class="grid md:grid-cols-3 gap-12">
         <div class="p-8 border border-neutral-200 rounded-xl hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-2">Predictive Maintenance for Manufacturing</h4>
           <p class="text-sm text-neutral-600 mb-4">Reduced downtime by 25% using anomaly detection models.</p>
-          <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Client: TechFab Ltd</span>
+          <span class="text-xs bg-silver_lake_blue-100 text-silver_lake_blue px-3 py-1 rounded-full">Client: TechFab Ltd</span>
         </div>
         <div class="p-8 border border-neutral-200 rounded-xl hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-2">Customer Churn Prediction</h4>
           <p class="text-sm text-neutral-600 mb-4">Identified high-risk segments leading to a 15% retention boost.</p>
-          <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Client: RetailCo</span>
+          <span class="text-xs bg-silver_lake_blue-100 text-silver_lake_blue px-3 py-1 rounded-full">Client: RetailCo</span>
         </div>
         <div class="p-8 border border-neutral-200 rounded-xl hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-2">Fraud Detection System</h4>
           <p class="text-sm text-neutral-600 mb-4">Implemented real-time fraud detection with 95% accuracy.</p>
-          <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Client: FinSecure</span>
+          <span class="text-xs bg-silver_lake_blue-100 text-silver_lake_blue px-3 py-1 rounded-full">Client: FinSecure</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-24 bg-neutral-100">
+  <section id="contact" class="py-24 bg-silver_lake_blue-100">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h3 class="text-4xl font-bold mb-6 tracking-tight">Let’s Talk</h3>
+      <h3 class="text-4xl font-bold mb-6 tracking-tight text-delft_blue">Let’s Talk</h3>
       <p class="mb-10 text-lg text-neutral-700">Ready to explore what’s possible? Let’s discuss how we can deliver sustainable AI/ML solutions for your organisation.</p>
-      <a href="mailto:info@precisionml.com" class="bg-blue-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-blue-800 transition">Email Us</a>
+      <a href="mailto:info@precisionml.com" class="bg-giants_orange text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-giants_orange-400 transition">Email Us</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-neutral-900 text-neutral-400 py-8 text-center text-sm">
+  <footer class="bg-dark_purple text-neutral-400 py-8 text-center text-sm">
     <p>&copy; <span id="year"></span> Precision ML Consulting. All rights reserved.</p>
   </footer>
 
