@@ -7,6 +7,7 @@
   <title>Ink Free Read</title>
   <link rel="icon" href="icon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/mustache@4.2.0/mustache.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bytesized&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
@@ -91,43 +92,41 @@
     <div class="max-w-7xl mx-auto px-6">
       <h3 class="text-4xl font-bold mb-6 text-center tracking-tight text-silver_lake_blue-100 font-heading">Past Projects</h3>
       <p class="text-center max-w-3xl mx-auto mb-16 text-silver_lake_blue-100">We’ve delivered solutions for Fortune 50 enterprises, high-growth startups, and major film studios, achieving a collective nine-figure impact.</p>
-      <div class="grid md:grid-cols-3 gap-12">
-        <div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition flex flex-col">
-            <!-- Client Logo -->
-            <div class="mb-4">
-              <img src="img/clients/grindr.webp" alt="Client Logo" class="h-12 object-contain" />
-            </div>
-          
-            <!-- Project Title & Description -->
-            <h4 class="text-xl font-heading font-semibold mb-2">"Top Picks" - Personalized Matches tailored for LGBTQ Population</h4>
-            <p class="text-sm text-neutral-600 mb-4">Reduced downtime by 25% using anomaly detection models.</p>
-          
-            <!-- Stats -->
-            <div class="mb-4">
-              <ul class="text-sm text-neutral-200 space-y-1">
-                <li><strong>Downtime Reduction:</strong> 25%</li>
-                <li><strong>Annual Savings:</strong> $2.4M</li>
-                <li><strong>Deployment Time:</strong> 3 months</li>
-              </ul>
-            </div>
-          
-            <!-- Tech Stack Icons -->
-            <div class="mt-auto flex space-x-3">
-              <img src="python-icon.svg" alt="Python" class="h-6 w-6" />
-              <img src="snowflake-icon.svg" alt="Snowflake" class="h-6 w-6" />
-              <img src="databricks-icon.svg" alt="Databricks" class="h-6 w-6" />
-            </div>
+      <div class="grid md:grid-cols-3 gap-12" id="projects-grid">
+        {{#projects}}
+        <div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition {{#isDetailed}}flex flex-col{{/isDetailed}}">
+          {{#logo}}
+          <div class="mb-4">
+            <img src="{{src}}" alt="{{alt}}" class="h-12 object-contain" />
           </div>
-        <div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">Customer Churn Prediction</h4>
-          <p class="text-sm text-neutral-600 mb-4">Identified high-risk segments leading to a 15% retention boost.</p>
-          <span class="text-xs bg-silver_lake_blue-100 text-silver_lake_blue px-3 py-1 rounded-full">Client: RetailCo</span>
+          {{/logo}}
+          
+          <h4 class="text-xl font-heading font-semibold mb-2">{{title}}</h4>
+          <p class="text-sm text-neutral-600 mb-4">{{description}}</p>
+          
+          {{#stats}}
+          <div class="mb-4">
+            <ul class="text-sm text-neutral-200 space-y-1">
+              {{#items}}
+              <li><strong>{{label}}:</strong> {{value}}</li>
+              {{/items}}
+            </ul>
+          </div>
+          {{/stats}}
+          
+          {{#techStack}}
+          <div class="mt-auto flex space-x-3">
+            {{#icons}}
+            <img src="{{src}}" alt="{{alt}}" class="h-6 w-6" />
+            {{/icons}}
+          </div>
+          {{/techStack}}
+          
+          {{#client}}
+          <span class="text-xs bg-silver_lake_blue-100 text-silver_lake_blue px-3 py-1 rounded-full">Client: {{name}}</span>
+          {{/client}}
         </div>
-        <div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">Fraud Detection System</h4>
-          <p class="text-sm text-neutral-600 mb-4">Implemented real-time fraud detection with 95% accuracy.</p>
-          <span class="text-xs bg-silver_lake_blue-100 text-silver_lake_blue px-3 py-1 rounded-full">Client: FinSecure</span>
-        </div>
+        {{/projects}}
       </div>
     </div>
   </section>
@@ -147,7 +146,55 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const projectsData = {
+      projects: [
+        {
+          logo: {
+            src: "img/clients/grindr.webp",
+            alt: "Client Logo"
+          },
+          title: "\"Top Picks\" - Personalized Matches tailored for LGBTQ Population",
+          description: "Reduced downtime by 25% using anomaly detection models.",
+          stats: {
+            items: [
+              { label: "Downtime Reduction", value: "25%" },
+              { label: "Annual Savings", value: "$2.4M" },
+              { label: "Deployment Time", value: "3 months" }
+            ]
+          },
+          techStack: {
+            icons: [
+              { src: "python-icon.svg", alt: "Python" },
+              { src: "snowflake-icon.svg", alt: "Snowflake" },
+              { src: "databricks-icon.svg", alt: "Databricks" }
+            ]
+          }
+        },
+        {
+          title: "Customer Churn Prediction",
+          description: "Identified high-risk segments leading to a 15% retention boost.",
+          client: { name: "RetailCo" }
+        },
+        {
+          title: "Fraud Detection System",
+          description: "Implemented real-time fraud detection with 95% accuracy.",
+          client: { name: "FinSecure" }
+        }
+      ]
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Mustache === 'undefined') {
+        console.error('Mustache.js not loaded');
+        return;
+      }
+      
+      const projectsGrid = document.getElementById('projects-grid');
+      const template = projectsGrid.innerHTML;
+      const rendered = Mustache.render(template, projectsData);
+      projectsGrid.innerHTML = rendered;
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
