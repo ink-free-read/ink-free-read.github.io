@@ -2,12 +2,12 @@
     "airflow": {
         "url": "https://airflow.apache.org/",
         "img_path": "airflow.svg",
-        "name": "Airflow"
+        "name": "Apache Airflow"
     },
     "aws": {
         "url": "https://aws.amazon.com/",
         "img_path": "aws.svg",
-        "name": "AWS"
+        "name": "Amazon Web Services"
     },
     "aws-ec2": {
         "url": "https://aws.amazon.com/ec2/",
@@ -72,12 +72,12 @@
     "spark": {
         "url": "https://spark.apache.org/",
         "img_path": "spark.svg",
-        "name": "Spark"
+        "name": "Apache Spark"
     },
     "spark_pride": {
         "url": "https://spark.apache.org/",
         "img_path": "spark_pride.png",
-        "name": "Spark"
+        "name": "Apache Spark"
     },
     "terraform": {
         "url": "https://www.terraform.io/",
