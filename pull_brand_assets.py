@@ -10,6 +10,12 @@ from pathlib import Path
 
 # Config: URL -> filename mapping
 ICONS = {
+    ## Brands
+    # https://brandfetch.com/grindrads.com
+    "grindr.svg": "https://cdn.brandfetch.io/idukQC8XIK/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667908434237",
+
+    ## Platforms
+
     # https://github.com/apache/airflow/tree/main/airflow-core/docs/img/logos
     "airflow.svg": "https://raw.githubusercontent.com/apache/airflow/refs/heads/main/airflow-core/docs/img/logos/wordmark_2.svg",
     "airflow.png": "https://raw.githubusercontent.com/apache/airflow/refs/heads/main/airflow-core/docs/img/logos/airflow_transparent.png",
@@ -89,7 +95,7 @@ ICONS = {
 }
 
 def download_icons():
-    platforms_dir = Path("img/platforms")
+    platforms_dir = Path("img/brands")
     platforms_dir.mkdir(parents=True, exist_ok=True)
     
     for filename, url in ICONS.items():
