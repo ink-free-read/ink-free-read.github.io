@@ -7,6 +7,12 @@
   <title>Ink Free Read</title>
   <link rel="icon" href="icon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bytesized&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -17,6 +23,14 @@
             delft_blue: { DEFAULT: '#414770', 100: '#0d0e17', 200: '#1a1d2d', 300: '#272b44', 400: '#34395b', 500: '#414770', 600: '#59629b', 700: '#8188b6', 800: '#abb0cf', 900: '#d5d7e7' },
             russian_violet: { DEFAULT: '#372248', 100: '#0b070f', 200: '#160e1d', 300: '#21152c', 400: '#2c1b3a', 500: '#372248', 600: '#613c80', 700: '#8a5bb2', 800: '#b191cb', 900: '#d8c8e5' },
             dark_purple: { DEFAULT: '#171123', 100: '#050307', 200: '#09070e', 300: '#0e0a15', 400: '#120d1c', 500: '#171123', 600: '#3f2e60', 700: '#684c9e', 800: '#9883c3', 900: '#ccc1e1' }
+          },
+          fontFamily: {
+            sans: ['Space Mono', 'sans-serif'],
+            // heading: ['Russo One', 'serif'],
+            // heading: ['Roboto Mono', 'serif'],
+            heading: ['Roboto Slab', 'serif'],
+            // title: ['Bytesized', 'serif']
+            title: ['Silkscreen', 'serif']
           }
         }
       }
@@ -29,7 +43,7 @@
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-3">
         <img src="icon.png" alt="Precision ML Icon" class="w-10 h-10 rounded-full" />
-        <h1 class="text-2xl font-bold text-white tracking-tight">Ink Free Read</h1>
+        <h1 class="text-2xl font-bold text-white tracking-tight font-title">Ink Free Read</h1>
       </div>
       <nav class="space-x-8 text-white font-medium">
         <a href="#services" class="hover:text-giants_orange">Services</a>
@@ -45,7 +59,7 @@
       <source src="hero-video.mp4" type="video/mp4" />
     </video>
     <div class="relative z-10 max-w-3xl px-4">
-      <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">AI & ML Solutions Proven in Production</h2>
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight font-heading">AI & ML Solutions Proven in Production</h2>
       <p class="text-xl md:text-2xl mb-8">Cut through the noise. We design, build, and optimise machine learning systems that are practical, scalable, and sustainable &#8212; delivering measurable business impact.</p>
       <a href="#contact" class="bg-giants_orange text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-giants_orange-400 transition">Work With Us</a>
     </div>
@@ -54,7 +68,7 @@
   <!-- Services -->
   <section id="services" class="py-24 bg-silver_lake_blue-100">
     <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-4xl font-bold mb-16 text-center tracking-tight text-delft_blue-900">Our Services</h3>
+      <h3 class="text-4xl font-bold mb-16 text-center tracking-tight text-delft_blue-900 font-heading">Our Services</h3>
       <div class="grid md:grid-cols-3 gap-12">
         <div class="group p-8 bg-delft_blue-900 rounded-xl shadow-lg hover:shadow-2xl transition">
           <h4 class="text-2xl font-semibold mb-4 group-hover:text-giants_orange transition">Practical AI & ML Strategy</h4>
@@ -75,7 +89,7 @@
   <!-- Projects -->
   <section id="projects" class="py-24 bg-delft_blue-800">
     <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-4xl font-bold mb-6 text-center tracking-tight text-silver_lake_blue-100">Past Projects</h3>
+      <h3 class="text-4xl font-bold mb-6 text-center tracking-tight text-silver_lake_blue-100 font-heading">Past Projects</h3>
       <p class="text-center max-w-3xl mx-auto mb-16 text-silver_lake_blue-100">We’ve delivered solutions for Fortune 50 enterprises, high-growth startups, and major film studios, achieving a collective nine-figure impact.</p>
       <div class="grid md:grid-cols-3 gap-12">
         <div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition">
@@ -100,7 +114,7 @@
   <!-- Contact -->
   <section id="contact" class="py-24 bg-silver_lake_blue-100">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h3 class="text-4xl font-bold mb-6 tracking-tight text-white">Let’s Talk</h3>
+      <h3 class="text-4xl font-bold mb-6 tracking-tight text-white font-heading">Let’s Talk</h3>
       <p class="mb-10 text-lg text-white">Ready to explore what’s possible? Let’s discuss how we can deliver sustainable AI/ML solutions for your organisation.</p>
       <a href="mailto:hello@inkfreeread.com" class="bg-giants_orange text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-giants_orange-400 transition">Email Us</a>
     </div>
