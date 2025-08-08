@@ -75,6 +75,7 @@ ICONS = {
     },
     # https://spark.apache.org/images/
     "spark.svg": "https://spark.apache.org/images/spark-start.svg",
+    "spark_pride.png": "https://spark.apache.org/images/spark-logo-pride.png",
     # "python.svg": "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg",
     # "snowflake.svg": "https://www.snowflake.com/wp-content/themes/snowflake/assets/img/logo.svg",
     # "databricks.svg": "https://databricks.com/wp-content/uploads/2021/10/db-navbar-logo.svg",

@@ -74,6 +74,11 @@
         "img_path": "spark.svg",
         "name": "Spark"
     },
+    "spark_pride": {
+        "url": "https://spark.apache.org/",
+        "img_path": "spark_pride.png",
+        "name": "Spark"
+    },
     "terraform": {
         "url": "https://www.terraform.io/",
         "img_path": "terraform.svg",
