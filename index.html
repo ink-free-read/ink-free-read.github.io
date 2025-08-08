@@ -92,11 +92,32 @@
       <h3 class="text-4xl font-bold mb-6 text-center tracking-tight text-silver_lake_blue-100 font-heading">Past Projects</h3>
       <p class="text-center max-w-3xl mx-auto mb-16 text-silver_lake_blue-100">We’ve delivered solutions for Fortune 50 enterprises, high-growth startups, and major film studios, achieving a collective nine-figure impact.</p>
       <div class="grid md:grid-cols-3 gap-12">
-        <div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">Predictive Maintenance for Manufacturing</h4>
-          <p class="text-sm text-neutral-600 mb-4">Reduced downtime by 25% using anomaly detection models.</p>
-          <span class="text-xs bg-silver_lake_blue-100 text-silver_lake_blue px-3 py-1 rounded-full">Client: TechFab Ltd</span>
-        </div>
+        <div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition flex flex-col">
+            <!-- Client Logo -->
+            <div class="mb-4">
+              <img src="img/clients/grindr.webp" alt="Client Logo" class="h-12 object-contain" />
+            </div>
+          
+            <!-- Project Title & Description -->
+            <h4 class="text-xl font-heading font-semibold mb-2">"Top Picks" - Personalized Matches tailored for LGBTQ Population</h4>
+            <p class="text-sm text-neutral-600 mb-4">Reduced downtime by 25% using anomaly detection models.</p>
+          
+            <!-- Stats -->
+            <div class="mb-4">
+              <ul class="text-sm text-neutral-200 space-y-1">
+                <li><strong>Downtime Reduction:</strong> 25%</li>
+                <li><strong>Annual Savings:</strong> $2.4M</li>
+                <li><strong>Deployment Time:</strong> 3 months</li>
+              </ul>
+            </div>
+          
+            <!-- Tech Stack Icons -->
+            <div class="mt-auto flex space-x-3">
+              <img src="python-icon.svg" alt="Python" class="h-6 w-6" />
+              <img src="snowflake-icon.svg" alt="Snowflake" class="h-6 w-6" />
+              <img src="databricks-icon.svg" alt="Databricks" class="h-6 w-6" />
+            </div>
+          </div>
         <div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-2">Customer Churn Prediction</h4>
           <p class="text-sm text-neutral-600 mb-4">Identified high-risk segments leading to a 15% retention boost.</p>
