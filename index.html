@@ -132,19 +132,29 @@
           techStack: [
             'python',
             'snowflake',
-            'databricks'
+            'databricks',
+            'spark',
+            'pytorch',
+            'mlflow',
+            'aws-ec2',
+            'aws-s3',
+            'terraform',
+            'kotlin',
+            'pytorch_geometric',
+            'pytorch_lightning',
+            'openai',
           ]
         },
-        {
-          title: "Customer Churn Prediction",
-          description: "Identified high-risk segments leading to a 15% retention boost.",
-          client: { name: "RetailCo" }
-        },
-        {
-          title: "Fraud Detection System",
-          description: "Implemented real-time fraud detection with 95% accuracy.",
-          client: { name: "FinSecure" }
-        }
+        // {
+        //   title: "Customer Churn Prediction",
+        //   description: "Identified high-risk segments leading to a 15% retention boost.",
+        //   client: { name: "RetailCo" }
+        // },
+        // {
+        //   title: "Fraud Detection System",
+        //   description: "Implemented real-time fraud detection with 95% accuracy.",
+        //   client: { name: "FinSecure" }
+        // }
       ]
     };
 
@@ -158,15 +168,36 @@
         fetch('static/project-cards.mustache').then(response => response.text()),
         fetch('static/stack_icons/python.mustache').then(response => response.text()),
         fetch('static/stack_icons/snowflake.mustache').then(response => response.text()),
-        fetch('static/stack_icons/databricks.mustache').then(response => response.text())
+        fetch('static/stack_icons/databricks.mustache').then(response => response.text()),
+        fetch('static/stack_icons/spark.mustache').then(response => response.text()),
+        fetch('static/stack_icons/mlflow.mustache').then(response => response.text()),
+        fetch('static/stack_icons/aws-ec2.mustache').then(response => response.text()),
+        fetch('static/stack_icons/aws-s3.mustache').then(response => response.text()),
+        fetch('static/stack_icons/terraform.mustache').then(response => response.text()),
+        fetch('static/stack_icons/kotlin.mustache').then(response => response.text()),
+        fetch('static/stack_icons/pytorch.mustache').then(response => response.text()),
+        fetch('static/stack_icons/pytorch_geometric.mustache').then(response => response.text()),
+        fetch('static/stack_icons/pytorch_lightning.mustache').then(response => response.text()),
+        fetch('static/stack_icons/openai.mustache').then(response => response.text()),
+
       ])
-      .then(([projectTemplate, pythonIcon, snowflakeIcon, databricksIcon]) => {
-        console.log('Loaded templates:', { pythonIcon, snowflakeIcon, databricksIcon });
+      .then(([projectTemplate, pythonIcon, snowflakeIcon, databricksIcon, sparkIcon, mlflowIcon, aws_ec2Icon, aws_s3Icon, terraformIcon, kotlinIcon, pytorchIcon, pytorch_geometricIcon, pytorch_lightningIcon, openaiIcon]) => {
+        // console.log('Loaded templates:', { pythonIcon, snowflakeIcon, databricksIcon, sparkIcon, mlflowIcon, aws_ec2Icon, aws_s3Icon, terraformIcon, kotlinIcon, pytorchIcon, pytorch_geometricIcon, pytorch_lightningIcon, openaiIcon });
         
         Handlebars.registerPartial('python', pythonIcon);
         Handlebars.registerPartial('snowflake', snowflakeIcon);
         Handlebars.registerPartial('databricks', databricksIcon);
-        
+        Handlebars.registerPartial('spark', sparkIcon);
+        Handlebars.registerPartial('mlflow', mlflowIcon);
+        Handlebars.registerPartial('aws-ec2', aws_ec2Icon);
+        Handlebars.registerPartial('aws-s3', aws_s3Icon);
+        Handlebars.registerPartial('terraform', terraformIcon);
+        Handlebars.registerPartial('kotlin', kotlinIcon);
+        Handlebars.registerPartial('pytorch', pytorchIcon);
+        Handlebars.registerPartial('pytorch_geometric', pytorch_geometricIcon);
+        Handlebars.registerPartial('pytorch_lightning', pytorch_lightningIcon);
+        Handlebars.registerPartial('openai', openaiIcon);
+
         Handlebars.registerHelper('eq', function(a, b) {
           return a === b;
         });
@@ -174,7 +205,7 @@
         const template = Handlebars.compile(projectTemplate);
         const rendered = template(projectsData);
         
-        console.log('Rendered HTML:', rendered);
+        // console.log('Rendered HTML:', rendered);
         const projectsGrid = document.getElementById('projects-grid');
         projectsGrid.innerHTML = rendered;
       })
