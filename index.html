@@ -138,9 +138,11 @@
                 'databricks',
                 'spark',
                 'pytorch',
+                'aws',
                 'terraform',
                 'mlflow',
                 'snowflake',
+                'airflow',
             ],
             [
                 'aws-ec2',
@@ -174,11 +176,13 @@
       
       Promise.all([
         fetch('static/project-cards.mustache').then(response => response.text()),
+        fetch('static/stack_icons/basic-icon.mustache').then(response => response.text()),
         fetch('static/stack_icons/python.mustache').then(response => response.text()),
         fetch('static/stack_icons/snowflake.mustache').then(response => response.text()),
         fetch('static/stack_icons/databricks.mustache').then(response => response.text()),
         fetch('static/stack_icons/spark.mustache').then(response => response.text()),
         fetch('static/stack_icons/mlflow.mustache').then(response => response.text()),
+        fetch('static/stack_icons/airflow.mustache').then(response => response.text()),
         fetch('static/stack_icons/aws-ec2.mustache').then(response => response.text()),
         fetch('static/stack_icons/aws-s3.mustache').then(response => response.text()),
         fetch('static/stack_icons/aws-sagemaker.mustache').then(response => response.text()),
@@ -190,12 +194,14 @@
         fetch('static/stack_icons/openai.mustache').then(response => response.text()),
 
       ])
-      .then(([projectTemplate, pythonIcon, snowflakeIcon, databricksIcon, sparkIcon, mlflowIcon, aws_ec2Icon, aws_s3Icon, aws_sagemakerIcon, terraformIcon, kotlinIcon, pytorchIcon, pytorch_geometricIcon, pytorch_lightningIcon, openaiIcon]) => {
+      .then(([projectTemplate, basicIconTpl, pythonIcon, snowflakeIcon, databricksIcon, sparkIcon, mlflowIcon, airflowIcon, aws_ec2Icon, aws_s3Icon, aws_sagemakerIcon, terraformIcon, kotlinIcon, pytorchIcon, pytorch_geometricIcon, pytorch_lightningIcon, openaiIcon]) => {
+        Handlebars.registerPartial('basic-icon', basicIconTpl);
         Handlebars.registerPartial('python', pythonIcon);
         Handlebars.registerPartial('snowflake', snowflakeIcon);
         Handlebars.registerPartial('databricks', databricksIcon);
         Handlebars.registerPartial('spark', sparkIcon);
         Handlebars.registerPartial('mlflow', mlflowIcon);
+        Handlebars.registerPartial('airflow', airflowIcon);
         Handlebars.registerPartial('aws-ec2', aws_ec2Icon);
         Handlebars.registerPartial('aws-s3', aws_s3Icon);
         Handlebars.registerPartial('aws-sagemaker', aws_sagemakerIcon);
