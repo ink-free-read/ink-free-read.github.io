@@ -32,6 +32,7 @@
     <div class="flex flex-wrap gap-3">
       {{#each .}}
       <span class="w-6 h-6 flex-shrink-0 group relative">
+        {{#if (eq . "airflow")}}{{> airflow}}{{/if}}
         {{#if (eq . "python")}}{{> python}}{{/if}}
         {{#if (eq . "snowflake")}}{{> snowflake}}{{/if}}
         {{#if (eq . "databricks")}}{{> databricks}}{{/if}}
@@ -47,6 +48,7 @@
         {{#if (eq . "pytorch_lightning")}}{{> pytorch_lightning}}{{/if}}
         {{#if (eq . "openai")}}{{> openai}}{{/if}}
         <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+          {{#if (eq . "airflow")}}Airflow{{/if}}
           {{#if (eq . "python")}}Python{{/if}}
           {{#if (eq . "snowflake")}}Snowflake{{/if}}
           {{#if (eq . "databricks")}}Databricks{{/if}}
