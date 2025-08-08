@@ -1,0 +1,38 @@
+{{#projects}}
+<div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition {{#isDetailed}}flex flex-col{{/isDetailed}}">
+  {{#logo}}
+  <div class="mb-4">
+    <img src="{{src}}" alt="{{alt}}" class="h-12 object-contain" />
+  </div>
+  {{/logo}}
+  
+  <h4 class="text-xl font-heading font-semibold mb-2">{{title}}</h4>
+  <p class="text-sm text-neutral-600 mb-4">{{description}}</p>
+  
+  {{#stats}}
+  <div class="mb-4">
+    <ul class="text-sm text-neutral-200 space-y-1">
+      {{#items}}
+      <li><strong>{{label}}:</strong> {{value}}</li>
+      {{/items}}
+    </ul>
+  </div>
+  {{/stats}}
+  
+  {{#if techStack}}
+  <div class="mt-auto flex space-x-3">
+    {{#each techStack}}
+    <span class="w-6 h-6 flex-shrink-0">
+      {{#if (eq . "python")}}{{> python}}{{/if}}
+      {{#if (eq . "snowflake")}}{{> snowflake}}{{/if}}
+      {{#if (eq . "databricks")}}{{> databricks}}{{/if}}
+    </span>
+    {{/each}}
+  </div>
+  {{/if}}
+  
+  {{#client}}
+  <span class="text-xs bg-silver_lake_blue-100 text-silver_lake_blue px-3 py-1 rounded-full">Client: {{name}}</span>
+  {{/client}}
+</div>
+{{/projects}}

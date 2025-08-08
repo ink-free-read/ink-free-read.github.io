@@ -7,7 +7,7 @@
   <title>Ink Free Read</title>
   <link rel="icon" href="icon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/mustache@4.2.0/mustache.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bytesized&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
@@ -93,40 +93,7 @@
       <h3 class="text-4xl font-bold mb-6 text-center tracking-tight text-silver_lake_blue-100 font-heading">Past Projects</h3>
       <p class="text-center max-w-3xl mx-auto mb-16 text-silver_lake_blue-100">We’ve delivered solutions for Fortune 50 enterprises, high-growth startups, and major film studios, achieving a collective nine-figure impact.</p>
       <div class="grid md:grid-cols-3 gap-12" id="projects-grid">
-        {{#projects}}
-        <div class="p-8 bg-silver_lake_blue-900 border border-neutral-200 rounded-xl hover:shadow-lg transition {{#isDetailed}}flex flex-col{{/isDetailed}}">
-          {{#logo}}
-          <div class="mb-4">
-            <img src="{{src}}" alt="{{alt}}" class="h-12 object-contain" />
-          </div>
-          {{/logo}}
-          
-          <h4 class="text-xl font-heading font-semibold mb-2">{{title}}</h4>
-          <p class="text-sm text-neutral-600 mb-4">{{description}}</p>
-          
-          {{#stats}}
-          <div class="mb-4">
-            <ul class="text-sm text-neutral-200 space-y-1">
-              {{#items}}
-              <li><strong>{{label}}:</strong> {{value}}</li>
-              {{/items}}
-            </ul>
-          </div>
-          {{/stats}}
-          
-          {{#techStack}}
-          <div class="mt-auto flex space-x-3">
-            {{#icons}}
-            <img src="{{src}}" alt="{{alt}}" class="h-6 w-6" />
-            {{/icons}}
-          </div>
-          {{/techStack}}
-          
-          {{#client}}
-          <span class="text-xs bg-silver_lake_blue-100 text-silver_lake_blue px-3 py-1 rounded-full">Client: {{name}}</span>
-          {{/client}}
-        </div>
-        {{/projects}}
+        <!-- Template will be loaded here -->
       </div>
     </div>
   </section>
@@ -162,13 +129,11 @@
               { label: "Deployment Time", value: "3 months" }
             ]
           },
-          techStack: {
-            icons: [
-              { src: "python-icon.svg", alt: "Python" },
-              { src: "snowflake-icon.svg", alt: "Snowflake" },
-              { src: "databricks-icon.svg", alt: "Databricks" }
-            ]
-          }
+          techStack: [
+            'python',
+            'snowflake',
+            'databricks'
+          ]
         },
         {
           title: "Customer Churn Prediction",
@@ -184,15 +149,39 @@
     };
 
     document.addEventListener('DOMContentLoaded', function() {
-      if (typeof Mustache === 'undefined') {
-        console.error('Mustache.js not loaded');
+      if (typeof Handlebars === 'undefined') {
+        console.error('Handlebars.js not loaded');
         return;
       }
       
-      const projectsGrid = document.getElementById('projects-grid');
-      const template = projectsGrid.innerHTML;
-      const rendered = Mustache.render(template, projectsData);
-      projectsGrid.innerHTML = rendered;
+      Promise.all([
+        fetch('static/project-cards.mustache').then(response => response.text()),
+        fetch('static/stack_icons/python.mustache').then(response => response.text()),
+        fetch('static/stack_icons/snowflake.mustache').then(response => response.text()),
+        fetch('static/stack_icons/databricks.mustache').then(response => response.text())
+      ])
+      .then(([projectTemplate, pythonIcon, snowflakeIcon, databricksIcon]) => {
+        console.log('Loaded templates:', { pythonIcon, snowflakeIcon, databricksIcon });
+        
+        Handlebars.registerPartial('python', pythonIcon);
+        Handlebars.registerPartial('snowflake', snowflakeIcon);
+        Handlebars.registerPartial('databricks', databricksIcon);
+        
+        Handlebars.registerHelper('eq', function(a, b) {
+          return a === b;
+        });
+        
+        const template = Handlebars.compile(projectTemplate);
+        const rendered = template(projectsData);
+        
+        console.log('Rendered HTML:', rendered);
+        const projectsGrid = document.getElementById('projects-grid');
+        projectsGrid.innerHTML = rendered;
+      })
+      .catch(error => {
+        console.error('Error loading templates:', error);
+      });
+      
       document.getElementById('year').textContent = new Date().getFullYear();
     });
   </script>
