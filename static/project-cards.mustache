@@ -11,15 +11,19 @@
   <h4 class="text-xl font-semibold mb-2 hover:text-giants_orange transition"><a href="{{link}}" target="_blank">{{title}}</a></h4>
   <p class="text-sm text-neutral-600 mb-4">{{description}}</p>
   
-  {{#stats}}
-  <div class="mb-4">
-    <ul class="text-sm text-neutral-900 space-y-1">
-      {{#items}}
-      <li><strong>{{label}}</strong> {{value}}</li>
-      {{/items}}
-    </ul>
-  </div>
-  {{/stats}}
+      {{#stats}}
+    <div class="mb-4">
+      <div class="flex flex-wrap gap-2">
+        {{#items}}
+        <div class="px-3 py-1 bg-neutral-100 text-neutral-900 text-sm rounded border">
+          <span class="font-semibold">{{label}}</span> {{value}}
+        </div>
+        {{/items}}
+      </div>
+    </div>
+    {{/stats}}
+
+  <h5 class="font-semibold mb-3 text-neutral-900">Tech Stack:</h3>
   
   {{#if techStack}}
   <div class="mt-auto flex flex-col gap-2">
