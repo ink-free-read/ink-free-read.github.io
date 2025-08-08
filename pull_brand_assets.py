@@ -11,8 +11,8 @@ from pathlib import Path
 # Config: URL -> filename mapping
 ICONS = {
     ## Brands
-    # https://brandfetch.com/grindrads.com
-    "grindr.svg": "https://cdn.brandfetch.io/idukQC8XIK/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667908434237",
+    # https://brandfetch.com/grindrads.com - but had to google for direct link
+    "grindr.svg": "https://upload.wikimedia.org/wikipedia/commons/5/56/Grindr_Logo_Black.svg",
 
     ## Platforms
 
