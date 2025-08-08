@@ -1,0 +1,82 @@
+{
+    "airflow": {
+        "url": "https://airflow.apache.org/",
+        "img_path": "airflow.svg",
+        "name": "Airflow"
+    },
+    "aws": {
+        "url": "https://aws.amazon.com/",
+        "img_path": "aws.svg",
+        "name": "AWS"
+    },
+    "aws-ec2": {
+        "url": "https://aws.amazon.com/ec2/",
+        "img_path": "aws-ec2.svg",
+        "name": "AWS EC2"
+    },
+    "aws-s3": {
+        "url": "https://aws.amazon.com/s3/",
+        "img_path": "aws-s3.svg",
+        "name": "AWS S3"
+    },
+    "aws-sagemaker": {
+        "url": "https://aws.amazon.com/sagemaker/",
+        "img_path": "aws-sagemaker.svg",
+        "name": "AWS Sagemaker"
+    },
+    "databricks": {
+        "url": "https://databricks.com/",
+        "img_path": "databricks.svg",
+        "name": "Databricks"
+    },
+    "kotlin": {
+        "url": "https://kotlinlang.org/",
+        "img_path": "kotlin.svg",
+        "name": "Kotlin"
+    },
+    "mlflow": {
+        "url": "https://mlflow.org/",
+        "img_path": "mlflow.svg",
+        "name": "MLflow"
+    },
+    "openai": {
+        "url": "https://openai.com/",
+        "img_path": "openai.svg",
+        "name": "OpenAI"
+    },
+    "python": {
+        "url": "https://www.python.org/",
+        "img_path": "python.svg",
+        "name": "Python"
+    },
+    "pytorch": {
+        "url": "https://pytorch.org/",
+        "img_path": "pytorch.svg",
+        "name": "PyTorch"
+    },
+    "pytorch_geometric": {
+        "url": "https://pytorch-geometric.readthedocs.io/en/latest/",
+        "img_path": "pytorch_geometric.svg",
+        "name": "PyTorch Geometric"
+    },
+    "pytorch_lightning": {
+        "url": "https://lightning.ai/",
+        "img_path": "pytorch_lightning.svg",
+        "name": "PyTorch Lightning"
+    },
+    "snowflake": {
+        "url": "https://www.snowflake.com/",
+        "img_path": "snowflake.svg",
+        "name": "Snowflake"
+    },
+    "spark": {
+        "url": "https://spark.apache.org/",
+        "img_path": "spark.svg",
+        "name": "Spark"
+    },
+    "terraform": {
+        "url": "https://www.terraform.io/",
+        "img_path": "terraform.svg",
+        "name": "Terraform"
+    }
+}

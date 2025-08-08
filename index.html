@@ -177,47 +177,25 @@
       Promise.all([
         fetch('static/project-cards.mustache').then(response => response.text()),
         fetch('static/stack_icons/basic-icon.mustache').then(response => response.text()),
-        fetch('static/stack_icons/python.mustache').then(response => response.text()),
-        fetch('static/stack_icons/snowflake.mustache').then(response => response.text()),
-        fetch('static/stack_icons/databricks.mustache').then(response => response.text()),
-        fetch('static/stack_icons/spark.mustache').then(response => response.text()),
-        fetch('static/stack_icons/mlflow.mustache').then(response => response.text()),
-        fetch('static/stack_icons/airflow.mustache').then(response => response.text()),
-        fetch('static/stack_icons/aws-ec2.mustache').then(response => response.text()),
-        fetch('static/stack_icons/aws-s3.mustache').then(response => response.text()),
-        fetch('static/stack_icons/aws-sagemaker.mustache').then(response => response.text()),
-        fetch('static/stack_icons/terraform.mustache').then(response => response.text()),
-        fetch('static/stack_icons/kotlin.mustache').then(response => response.text()),
-        fetch('static/stack_icons/pytorch.mustache').then(response => response.text()),
-        fetch('static/stack_icons/pytorch_geometric.mustache').then(response => response.text()),
-        fetch('static/stack_icons/pytorch_lightning.mustache').then(response => response.text()),
-        fetch('static/stack_icons/openai.mustache').then(response => response.text()),
+        fetch('static/stack_icons/providers.json').then(response => response.text()),
 
       ])
-      .then(([projectTemplate, basicIconTpl, pythonIcon, snowflakeIcon, databricksIcon, sparkIcon, mlflowIcon, airflowIcon, aws_ec2Icon, aws_s3Icon, aws_sagemakerIcon, terraformIcon, kotlinIcon, pytorchIcon, pytorch_geometricIcon, pytorch_lightningIcon, openaiIcon]) => {
+      .then(([projectTemplate, basicIconTpl, providersJson]) => {
         Handlebars.registerPartial('basic-icon', basicIconTpl);
-        Handlebars.registerPartial('python', pythonIcon);
-        Handlebars.registerPartial('snowflake', snowflakeIcon);
-        Handlebars.registerPartial('databricks', databricksIcon);
-        Handlebars.registerPartial('spark', sparkIcon);
-        Handlebars.registerPartial('mlflow', mlflowIcon);
-        Handlebars.registerPartial('airflow', airflowIcon);
-        Handlebars.registerPartial('aws-ec2', aws_ec2Icon);
-        Handlebars.registerPartial('aws-s3', aws_s3Icon);
-        Handlebars.registerPartial('aws-sagemaker', aws_sagemakerIcon);
-        Handlebars.registerPartial('terraform', terraformIcon);
-        Handlebars.registerPartial('kotlin', kotlinIcon);
-        Handlebars.registerPartial('pytorch', pytorchIcon);
-        Handlebars.registerPartial('pytorch_geometric', pytorch_geometricIcon);
-        Handlebars.registerPartial('pytorch_lightning', pytorch_lightningIcon);
-        Handlebars.registerPartial('openai', openaiIcon);
-
-        Handlebars.registerHelper('eq', function(a, b) {
-          return a === b;
-        });
+        const providers = JSON.parse(providersJson);
+        const resolvedData = {
+          projects: projectsData.projects.map(project => ({
+            ...project,
+            techStack: Array.isArray(project.techStack)
+              ? project.techStack.map(row => Array.isArray(row)
+                  ? row.map(key => providers[key] || { url: '#', img_path: '', name: key })
+                  : row)
+              : project.techStack
+          }))
+        };
         
         const template = Handlebars.compile(projectTemplate);
-        const rendered = template(projectsData);
+        const rendered = template(resolvedData);
         
         const projectsGrid = document.getElementById('projects-grid');
         projectsGrid.innerHTML = rendered;

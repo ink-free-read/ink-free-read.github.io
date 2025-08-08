@@ -32,38 +32,8 @@
     <div class="flex flex-wrap gap-3">
       {{#each .}}
       <span class="w-6 h-6 flex-shrink-0 group relative">
-        {{#if (eq . "airflow")}}{{> airflow}}{{/if}}
-        {{#if (eq . "python")}}{{> python}}{{/if}}
-        {{#if (eq . "snowflake")}}{{> snowflake}}{{/if}}
-        {{#if (eq . "databricks")}}{{> databricks}}{{/if}}
-        {{#if (eq . "spark")}}{{> spark}}{{/if}}
-        {{#if (eq . "mlflow")}}{{> mlflow}}{{/if}}
-        {{#if (eq . "aws-ec2")}}{{> aws-ec2}}{{/if}}
-        {{#if (eq . "aws-s3")}}{{> aws-s3}}{{/if}}
-        {{#if (eq . "aws-sagemaker")}}{{> aws-sagemaker}}{{/if}}
-        {{#if (eq . "terraform")}}{{> terraform}}{{/if}}
-        {{#if (eq . "kotlin")}}{{> kotlin}}{{/if}}
-        {{#if (eq . "pytorch")}}{{> pytorch}}{{/if}}
-        {{#if (eq . "pytorch_geometric")}}{{> pytorch_geometric}}{{/if}}
-        {{#if (eq . "pytorch_lightning")}}{{> pytorch_lightning}}{{/if}}
-        {{#if (eq . "openai")}}{{> openai}}{{/if}}
-        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-          {{#if (eq . "airflow")}}Airflow{{/if}}
-          {{#if (eq . "python")}}Python{{/if}}
-          {{#if (eq . "snowflake")}}Snowflake{{/if}}
-          {{#if (eq . "databricks")}}Databricks{{/if}}
-          {{#if (eq . "spark")}}Apache Spark{{/if}}
-          {{#if (eq . "mlflow")}}MLflow{{/if}}
-          {{#if (eq . "aws-ec2")}}AWS EC2{{/if}}
-          {{#if (eq . "aws-s3")}}AWS S3{{/if}}
-          {{#if (eq . "aws-sagemaker")}}AWS Sagemaker{{/if}}
-          {{#if (eq . "terraform")}}Terraform{{/if}}
-          {{#if (eq . "kotlin")}}Kotlin{{/if}}
-          {{#if (eq . "pytorch")}}PyTorch{{/if}}
-          {{#if (eq . "pytorch_geometric")}}PyTorch Geometric{{/if}}
-          {{#if (eq . "pytorch_lightning")}}PyTorch Lightning{{/if}}
-          {{#if (eq . "openai")}}OpenAI{{/if}}
-        </div>
+        {{> basic-icon url=this.url img_path=this.img_path name=this.name }}
+        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">{{this.name}}</div>
       </span>
       {{/each}}
     </div>
