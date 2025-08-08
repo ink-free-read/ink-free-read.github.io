@@ -15,8 +15,9 @@
     <div class="mb-4">
       <div class="flex flex-wrap gap-2">
         {{#items}}
-        <div class="px-3 py-1 bg-neutral-100 text-neutral-900 text-sm rounded border">
-          <span class="font-semibold">{{label}}</span> {{value}}
+        <div class="px-3 py-2 bg-neutral-100 text-neutral-900 rounded border text-center">
+          <div class="text-lg font-bold">{{value}}</div>
+          <div class="text-neutral-600">{{label}}</div>
         </div>
         {{/items}}
       </div>
