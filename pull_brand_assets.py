@@ -33,6 +33,14 @@ ICONS = {
     # https://brand.databricks.com/databricks-logo
     'databricks.svg': "https://cdn.bfldr.com/9AYANS2F/at/k8bgnnxhb4bggjk88r4x9snf/databricks-symbol-color.svg",
     
+    # https://brand.github.com/foundations/logo
+    "github" : {
+        'source': "https://brand.github.com/GitHub_Logos.zip",
+        'files': {
+            "github.svg": 'GitHub Logos/SVG/GitHub_Invertocat_Dark.svg',
+        }
+    },
+
     # https://kotlinlang.org/docs/kotlin-brand-assets.html
     'kotlin' : {
         'source': "https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip",
