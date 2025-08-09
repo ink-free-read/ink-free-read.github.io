@@ -29,6 +29,11 @@
         "img_path": "databricks.svg",
         "name": "Databricks"
     },
+    "github": {
+        "url": "https://github.com/",
+        "img_path": "github.svg",
+        "name": "GitHub"
+    },
     "kotlin": {
         "url": "https://kotlinlang.org/",
         "img_path": "kotlin.svg",
