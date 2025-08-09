@@ -126,14 +126,20 @@
           description: "We designed and deployed the world's first large-scale matching algorithm made specifically for the LGBTQ+ population. Privacy oriented. Bias-mitigating. Resilient to exceedingly sparse real-world interaction, demographic, and match data.",
           stats: {
             items: [
-                [
-                    { value: "100x", label: "ROI", detail: "100x ROI over 5 years" },
-                ],
-                [
-                    { value: "+$4M", label: "ARR" , detail: "$4M revenue increase per year" },
-                    { value: ">50M", label: "MAUs" , detail: "50M+ Monthly Active Users" },
-                    { value: "+400%", label: "Matches" , detail: "400% Match Rate Increase" },
-                ]
+                {
+                    type: 'primary',
+                    items: [
+                        { value: "100x", label: "ROI", detail: "100x ROI over 5 years" },
+                    ]
+                },
+                {
+                    type: 'secondary',
+                    items: [
+                        { value: "+$4M", label: "ARR" , detail: "$4M revenue increase per year" },
+                        { value: ">50M", label: "MAUs" , detail: "50M+ Monthly Active Users" },
+                        { value: "+400%", label: "Matches" , detail: "400% Match Rate Increase" },
+                    ]
+                }
             ]
           },
           techStack: [
@@ -152,6 +158,7 @@
                 'aws-ec2',
                 'aws-s3',
                 'aws-sagemaker',
+                'nvidia',
                 'openai',
                 'pytorch_geometric',
                 'pytorch_lightning',
@@ -186,6 +193,7 @@
       ])
       .then(([projectTemplate, basicIconTpl, providersJson]) => {
         Handlebars.registerPartial('basic-icon', basicIconTpl);
+        Handlebars.registerHelper('eq', function(a, b) { return a === b; });
         const providers = JSON.parse(providersJson);
         const resolvedData = {
           projects: projectsData.projects.map(project => ({
