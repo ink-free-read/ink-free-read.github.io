@@ -132,7 +132,7 @@
         const providers = JSON.parse(providersJson);
         const inputProjects = JSON.parse(projectsJson);
         const resolvedData = {
-          projects: inputProjects.projects.map(project => ({
+          projects: inputProjects.projects.slice(0, 1).map(project => ({
             ...project,
             techStack: project.techStack.map(row => ({
               type: row.type || 'secondary',
