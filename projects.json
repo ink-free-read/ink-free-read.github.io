@@ -30,11 +30,11 @@
       "techStack": [
         {
           "type": "primary",
-          "items": ["python", "databricks", "spark_pride", "snowflake"]
+          "items": ["aws", "spark_pride", "databricks", "snowflake"]
         },
         {
           "type": "secondary",
-          "items": ["aws", "terraform", "mlflow", "airflow", "pytorch"]
+          "items": ["python", "terraform", "mlflow", "airflow", "pytorch"]
         },
         {
           "type": "tertiary",
