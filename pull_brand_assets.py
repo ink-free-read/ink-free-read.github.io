@@ -44,6 +44,8 @@ ICONS = {
     # https://github.com/mlflow/mlflow/blob/master/assets/
     "mlflow.svg": "https://raw.githubusercontent.com/mlflow/mlflow/refs/heads/master/assets/icon.svg",
     
+    "nvidia.svg": "https://www.logo.wine/a/logo/Nvidia/Nvidia-Logo.wine.svg",
+
     # https://openai.com/brand/
     "openai": {
         'source': "https://cdn.openai.com/brand/OpenAI-Logos-2025.zip",
