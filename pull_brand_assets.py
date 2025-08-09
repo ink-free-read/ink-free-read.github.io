@@ -45,6 +45,7 @@ ICONS = {
     "mlflow.svg": "https://raw.githubusercontent.com/mlflow/mlflow/refs/heads/master/assets/icon.svg",
     
     "nvidia.svg": "https://www.logo.wine/a/logo/Nvidia/Nvidia-Logo.wine.svg",
+    "nvidia_close.svg": "https://upload.wikimedia.org/wikipedia/sco/2/21/Nvidia_logo.svg",
 
     # https://openai.com/brand/
     "openai": {

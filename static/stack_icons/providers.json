@@ -39,6 +39,11 @@
         "img_path": "mlflow.svg",
         "name": "MLflow"
     },
+    "nvidia": {
+        "url": "https://www.nvidia.com/",
+        "img_path": "nvidia_close.svg",
+        "name": "NVIDIA"
+    },
     "openai": {
         "url": "https://openai.com/",
         "img_path": "openai.svg",
