@@ -1,0 +1,114 @@
+{
+  "projects": [
+    {
+      "logo": {
+        "src": "img/brands/grindr.svg",
+        "alt": "Grindr",
+        "link": "https://www.grindr.com/"
+      },
+      "title": "\"For You\"",
+      "link": "https://help.grindr.com/hc/en-us/articles/12155355365011-The-Grid#h_01JJ4XJ387T331R30HYBPSTQMV",
+      "description": "We designed and deployed the world's first large-scale matching algorithm made specifically for the LGBTQ+ population. Privacy oriented. Bias-mitigating. Resilient to exceedingly sparse real-world interaction, demographic, and match data.",
+      "stats": {
+        "items": [
+          {
+            "type": "primary",
+            "items": [
+              { "value": "100x", "label": "ROI", "detail": "100x ROI over 5 years" }
+            ]
+          },
+          {
+            "type": "secondary",
+            "items": [
+              { "value": "+$4M", "label": "ARR", "detail": "$4M revenue increase per year" },
+              { "value": ">50M", "label": "MAUs", "detail": "50M+ Monthly Active Users" },
+              { "value": "+400%", "label": "Matches", "detail": "400% Match Rate Increase" }
+            ]
+          }
+        ]
+      },
+      "techStack": [
+        {
+          "type": "primary",
+          "items": ["aws", "databricks", "spark_pride", "snowflake"]
+        },
+        {
+          "type": "secondary",
+          "items": ["python", "terraform", "mlflow", "airflow"]
+        },
+        {
+          "type": "tertiary",
+          "items": [
+            "github",
+            "aws-ec2",
+            "aws-s3",
+            "nvidia",
+            "openai",
+            "kotlin"
+          ]
+        }
+      ]
+    },
+    {
+        "logo": {
+          "src": "img/brands/grindr.svg",
+          "alt": "Grindr",
+          "link": "https://www.grindr.com/"
+        },
+        "title": "\"For You\" - V2",
+        "link": "https://help.grindr.com/hc/en-us/articles/12155355365011-The-Grid#h_01JJ4XJ387T331R30HYBPSTQMV",
+        "description": "...",
+        "stats": {
+          "items": [
+            {
+              "type": "primary",
+              "items": [
+                { "value": "100x", "label": "ROI", "detail": "100x ROI over 5 years" }
+              ]
+            },
+            {
+              "type": "secondary",
+              "items": [
+                { "value": "+$4M", "label": "ARR", "detail": "$4M revenue increase per year" },
+                { "value": ">50M", "label": "MAUs", "detail": "50M+ Monthly Active Users" },
+                { "value": "+400%", "label": "Matches", "detail": "400% Match Rate Increase" }
+              ]
+            }
+          ]
+        },
+        "techStack": [
+          {
+            "type": "primary",
+            "items": [
+                "aws", 
+                "aws-sagemaker",
+                "spark_pride",
+                "pytorch"
+            ]
+          },
+          {
+            "type": "secondary",
+            "items": [
+              "python",
+              "pytorch_geometric",
+              "pytorch_lightning",
+              "terraform",
+              "mlflow"
+            ]
+          },
+          {
+            "type": "tertiary",
+            "items": [
+              "github",
+              "aws-ec2",
+              "aws-s3",
+              "snowflake",
+              "nvidia",
+              "openai",
+              "kotlin"
+            ]
+          }
+        ]
+      }
+  ]
+}

@@ -9,54 +9,64 @@
     {{/logo}}
   
   <h4 class="text-xl font-semibold mb-2 hover:text-giants_orange transition"><a href="{{link}}" target="_blank">{{title}}</a></h4>
-  <p class="text-sm text-neutral-600 mb-4">{{description}}</p>
   
-  {{#stats}}
-  <div class="mb-4">
-    <ul class="text-sm text-neutral-900 space-y-1">
-      {{#items}}
-      <li><strong>{{label}}</strong> {{value}}</li>
-      {{/items}}
-    </ul>
-  </div>
-  {{/stats}}
+  
+      {{#stats}}
+    <div class="mb-4">
+      <div class="flex flex-col gap-2">
+        {{#each items}}
+        <div class="flex flex-wrap gap-2">
+          {{#each items}}
+          <div class="relative group">
+            <div
+              {{#if (eq ../type 'primary')}}
+              class="rounded border text-center px-20 py-2 bg-giants_orange text-white shadow-md"
+              {{else}}{{#if (eq ../type 'secondary')}}
+              class="rounded border text-center px-2 py-1.5 bg-neutral-100 text-neutral-900"
+              {{else}}
+              class="rounded border text-center px-2 py-1.5 bg-neutral-100 text-neutral-900"
+              {{/if}}{{/if}}
+            >
+              <div
+                {{#if (eq ../type 'primary')}}  
+                class=" text-2xl font-extrabold leading-tight"
+                {{else}}{{#if (eq ../type 'secondary')}}
+                class=" text-lg font-bold leading-none"
+                {{else}}
+                class=" text-lg font-bold leading-none"
+                {{/if}}{{/if}}
+              >{{value}}</div>
+              <div
+                {{#if (eq ../type 'primary')}}  
+                class="text-white/80 text-lg -mt-1"
+                {{else}}
+                class="text-xs text-neutral-600 mt-0"
+                {{/if}}
+              >{{label}}</div>
+            </div>
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+              {{#if detail}}{{detail}}{{else}}{{label}}: {{value}}{{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/stats}}
+
+  <p class="text-sm text-neutral-600 mb-4">{{description}}</p>
+
+  <h5 class="font-semibold mb-3 text-neutral-900">Tech Stack:</h3>
   
   {{#if techStack}}
   <div class="mt-auto flex flex-col gap-2">
     {{#each techStack}}
     <div class="flex flex-wrap gap-3">
-      {{#each .}}
-      <span class="w-6 h-6 flex-shrink-0 group relative">
-        {{#if (eq . "python")}}{{> python}}{{/if}}
-        {{#if (eq . "snowflake")}}{{> snowflake}}{{/if}}
-        {{#if (eq . "databricks")}}{{> databricks}}{{/if}}
-        {{#if (eq . "spark")}}{{> spark}}{{/if}}
-        {{#if (eq . "mlflow")}}{{> mlflow}}{{/if}}
-        {{#if (eq . "aws-ec2")}}{{> aws-ec2}}{{/if}}
-        {{#if (eq . "aws-s3")}}{{> aws-s3}}{{/if}}
-        {{#if (eq . "aws-sagemaker")}}{{> aws-sagemaker}}{{/if}}
-        {{#if (eq . "terraform")}}{{> terraform}}{{/if}}
-        {{#if (eq . "kotlin")}}{{> kotlin}}{{/if}}
-        {{#if (eq . "pytorch")}}{{> pytorch}}{{/if}}
-        {{#if (eq . "pytorch_geometric")}}{{> pytorch_geometric}}{{/if}}
-        {{#if (eq . "pytorch_lightning")}}{{> pytorch_lightning}}{{/if}}
-        {{#if (eq . "openai")}}{{> openai}}{{/if}}
-        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-          {{#if (eq . "python")}}Python{{/if}}
-          {{#if (eq . "snowflake")}}Snowflake{{/if}}
-          {{#if (eq . "databricks")}}Databricks{{/if}}
-          {{#if (eq . "spark")}}Apache Spark{{/if}}
-          {{#if (eq . "mlflow")}}MLflow{{/if}}
-          {{#if (eq . "aws-ec2")}}AWS EC2{{/if}}
-          {{#if (eq . "aws-s3")}}AWS S3{{/if}}
-          {{#if (eq . "aws-sagemaker")}}AWS Sagemaker{{/if}}
-          {{#if (eq . "terraform")}}Terraform{{/if}}
-          {{#if (eq . "kotlin")}}Kotlin{{/if}}
-          {{#if (eq . "pytorch")}}PyTorch{{/if}}
-          {{#if (eq . "pytorch_geometric")}}PyTorch Geometric{{/if}}
-          {{#if (eq . "pytorch_lightning")}}PyTorch Lightning{{/if}}
-          {{#if (eq . "openai")}}OpenAI{{/if}}
-        </div>
+      {{#each items}}
+      <span class="group relative {{#if (eq ../type 'primary')}} w-12 h-12 {{else}}{{#if (eq ../type 'secondary')}} w-9 h-9 {{else}} w-6 h-6 {{/if}}{{/if}} flex-shrink-0">
+        {{> basic-icon url=this.url img_path=this.img_path name=this.name }}
+        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">{{this.name}}</div>
       </span>
       {{/each}}
     </div>
