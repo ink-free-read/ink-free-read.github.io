@@ -23,12 +23,12 @@ ICONS = {
     "aws": {
         'source': "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/architecture/approved/architecture-icons/Asset-Package_07312025.49d3aab7f9e6131e51ade8f7c6c8b961ee7d3bb1.zip",
         'files': {
-            "aws.svg": "Architecture-Group-Icons_07312025/AWS-Cloud-logo_32_Dark.svg",
             "aws-ec2.svg": "Architecture-Service-Icons_07312025/Arch_Compute/64/Arch_Amazon-EC2_64.svg",
             "aws-sagemaker.svg": "Architecture-Service-Icons_07312025/Arch_Artificial-Intelligence/64/Arch_Amazon-SageMaker-AI_64.svg",
             "aws-s3.svg": "Architecture-Service-Icons_07312025/Arch_Storage/64/Arch_Amazon-Simple-Storage-Service_64.svg",
         }
     },
+    "aws.svg": "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
 
     # https://brand.databricks.com/databricks-logo
     'databricks.svg': "https://cdn.bfldr.com/9AYANS2F/at/k8bgnnxhb4bggjk88r4x9snf/databricks-symbol-color.svg",
