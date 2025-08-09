@@ -42,7 +42,7 @@
     {{#each techStack}}
     <div class="flex flex-wrap gap-3">
       {{#each items}}
-      <span class="group relative {{#if (eq ../type 'primary')}} w-12 h-12 {{else}} w-6 h-6 {{/if}} flex-shrink-0">
+      <span class="group relative {{#if (eq ../type 'primary')}} w-12 h-12 {{else}}{{#if (eq ../type 'secondary')}} w-9 h-9 {{else}} w-6 h-6 {{/if}}{{/if}} flex-shrink-0">
         {{> basic-icon url=this.url img_path=this.img_path name=this.name }}
         <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">{{this.name}}</div>
       </span>
