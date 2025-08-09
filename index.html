@@ -113,83 +113,6 @@
   </footer>
 
   <script>
-    const projectsData = {
-      projects: [
-        {
-          logo: {
-            src: "img/brands/grindr.svg",
-            alt: "Grindr",
-            link: "https://www.grindr.com/"
-          },
-          title: "\"For You\"",
-          link: "https://help.grindr.com/hc/en-us/articles/12155355365011-The-Grid#h_01JJ4XJ387T331R30HYBPSTQMV",
-          description: "We designed and deployed the world's first large-scale matching algorithm made specifically for the LGBTQ+ population. Privacy oriented. Bias-mitigating. Resilient to exceedingly sparse real-world interaction, demographic, and match data.",
-          stats: {
-            items: [
-                {
-                    type: 'primary',
-                    items: [
-                        { value: "100x", label: "ROI", detail: "100x ROI over 5 years" },
-                    ]
-                },
-                {
-                    type: 'secondary',
-                    items: [
-                        { value: "+$4M", label: "ARR" , detail: "$4M revenue increase per year" },
-                        { value: ">50M", label: "MAUs" , detail: "50M+ Monthly Active Users" },
-                        { value: "+400%", label: "Matches" , detail: "400% Match Rate Increase" },
-                    ]
-                }
-            ]
-          },
-          techStack: [
-            {
-                type: 'primary',
-                items: [
-                    'python',
-                    'databricks',
-                    'spark_pride',
-                    'snowflake',
-                ],
-            },
-            {
-                type: 'secondary',
-                items: [
-                    'aws',
-                    'terraform',
-                    'mlflow',
-                    'airflow',
-                    'pytorch',
-                ],
-            },
-            {
-                type: 'tertiary',
-                items: [
-                    'aws-ec2',
-                    'aws-s3',
-                    'aws-sagemaker',
-                    'nvidia',
-                    'openai',
-                    'pytorch_geometric',
-                    'pytorch_lightning',
-                    'kotlin',
-                ],
-            },
-          ],
-        },
-        // {
-        //   title: "Customer Churn Prediction",
-        //   description: "Identified high-risk segments leading to a 15% retention boost.",
-        //   client: { name: "RetailCo" }
-        // },
-        // {
-        //   title: "Fraud Detection System",
-        //   description: "Implemented real-time fraud detection with 95% accuracy.",
-        //   client: { name: "FinSecure" }
-        // }
-      ]
-    };
-
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof Handlebars === 'undefined') {
         console.error('Handlebars.js not loaded');
@@ -200,14 +123,16 @@
         fetch('static/project-cards.mustache').then(response => response.text()),
         fetch('static/stack_icons/basic-icon.mustache').then(response => response.text()),
         fetch('static/stack_icons/providers.json').then(response => response.text()),
+        fetch('projects.json').then(response => response.text()),
 
       ])
-      .then(([projectTemplate, basicIconTpl, providersJson]) => {
+      .then(([projectTemplate, basicIconTpl, providersJson, projectsJson]) => {
         Handlebars.registerPartial('basic-icon', basicIconTpl);
         Handlebars.registerHelper('eq', function(a, b) { return a === b; });
         const providers = JSON.parse(providersJson);
+        const inputProjects = JSON.parse(projectsJson);
         const resolvedData = {
-          projects: projectsData.projects.map(project => ({
+          projects: inputProjects.projects.map(project => ({
             ...project,
             techStack: project.techStack.map(row => ({
               type: row.type || 'secondary',
