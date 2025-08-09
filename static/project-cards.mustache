@@ -9,25 +9,31 @@
     {{/logo}}
   
   <h4 class="text-xl font-semibold mb-2 hover:text-giants_orange transition"><a href="{{link}}" target="_blank">{{title}}</a></h4>
-  <p class="text-sm text-neutral-600 mb-4">{{description}}</p>
+  
   
       {{#stats}}
     <div class="mb-4">
-      <div class="flex flex-wrap gap-2">
-        {{#items}}
-        <div class="relative group">
-          <div class="px-3 py-2 bg-neutral-100 text-neutral-900 rounded border text-center">
-            <div class="text-lg font-bold">{{value}}</div>
-            <div class="text-neutral-600">{{label}}</div>
+      <div class="flex flex-col gap-2">
+        {{#each items}}
+        <div class="flex flex-wrap gap-2">
+          {{#each this}}
+          <div class="relative group">
+            <div class="px-3 py-2 bg-neutral-100 text-neutral-900 rounded border text-center">
+              <div class="text-lg font-bold">{{value}}</div>
+              <div class="text-neutral-600">{{label}}</div>
+            </div>
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+              {{#if detail}}{{detail}}{{else}}{{label}}: {{value}}{{/if}}
+            </div>
           </div>
-          <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-            {{#if detail}}{{detail}}{{else}}{{label}}: {{value}}{{/if}}
-          </div>
+          {{/each}}
         </div>
-        {{/items}}
+        {{/each}}
       </div>
     </div>
     {{/stats}}
+
+  <p class="text-sm text-neutral-600 mb-4">{{description}}</p>
 
   <h5 class="font-semibold mb-3 text-neutral-900">Tech Stack:</h3>
   
