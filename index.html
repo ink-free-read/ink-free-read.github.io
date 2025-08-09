@@ -143,28 +143,34 @@
             ]
           },
           techStack: [
-            [
-                'python',
-                'databricks',
-                'spark_pride',
-                'pytorch',
-                'aws',
-                'terraform',
-                'mlflow',
-                'snowflake',
-                'airflow',
-            ],
-            [
-                'aws-ec2',
-                'aws-s3',
-                'aws-sagemaker',
-                'nvidia',
-                'openai',
-                'pytorch_geometric',
-                'pytorch_lightning',
-                'kotlin',
-            ]
-          ]
+            {
+                type: 'primary',
+                items: [
+                    'python',
+                    'databricks',
+                    'spark_pride',
+                    'pytorch',
+                    'aws',
+                    'terraform',
+                    'mlflow',
+                    'snowflake',
+                    'airflow',
+                ],
+            },
+            {
+                type: 'secondary',
+                items: [
+                    'aws-ec2',
+                    'aws-s3',
+                    'aws-sagemaker',
+                    'nvidia',
+                    'openai',
+                    'pytorch_geometric',
+                    'pytorch_lightning',
+                    'kotlin',
+                ],
+            },
+          ],
         },
         // {
         //   title: "Customer Churn Prediction",
@@ -198,11 +204,10 @@
         const resolvedData = {
           projects: projectsData.projects.map(project => ({
             ...project,
-            techStack: Array.isArray(project.techStack)
-              ? project.techStack.map(row => Array.isArray(row)
-                  ? row.map(key => providers[key] || { url: '#', img_path: '', name: key })
-                  : row)
-              : project.techStack
+            techStack: project.techStack.map(row => ({
+              type: row.type || 'secondary',
+              items: row.items.map(key => providers[key])
+            }))
           }))
         };
         

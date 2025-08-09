@@ -18,7 +18,7 @@
         <div class="flex flex-wrap gap-2">
           {{#each items}}
           <div class="relative group">
-            <div class="rounded border text-center {{#if (eq ../type 'primary')}} px-12 py-2 bg-giants_orange text-white shadow-md {{else}} px-2 py-1 bg-neutral-100 text-neutral-900 {{/if}}">
+            <div class="rounded border text-center {{#if (eq ../type 'primary')}} px-20 py-2 bg-giants_orange text-white shadow-md {{else}} px-2 py-1 bg-neutral-100 text-neutral-900 {{/if}}">
               <div class="{{#if (eq ../type 'primary')}} text-2xl font-extrabold {{else}} text-lg font-bold {{/if}}">{{value}}</div>
               <div class="{{#if (eq ../type 'primary')}} text-white/80 {{else}} text-xs text-neutral-600 {{/if}}">{{label}}</div>
             </div>
@@ -41,8 +41,8 @@
   <div class="mt-auto flex flex-col gap-2">
     {{#each techStack}}
     <div class="flex flex-wrap gap-3">
-      {{#each .}}
-      <span class="w-6 h-6 flex-shrink-0 group relative">
+      {{#each items}}
+      <span class="group relative {{#if (eq ../type 'primary')}} w-12 h-12 {{else}} w-6 h-6 {{/if}} flex-shrink-0">
         {{> basic-icon url=this.url img_path=this.img_path name=this.name }}
         <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">{{this.name}}</div>
       </span>
